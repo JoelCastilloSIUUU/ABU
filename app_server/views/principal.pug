@@ -1,0 +1,56 @@
+extends layout
+
+block content
+  .container-fluid.p-0(style="background-color: #F8F9FA; min-height: 100vh;")
+    
+    //- HEADER (Identidad visual)
+    .header-naranja.p-4.text-white(style="background: #FF8C00; border-bottom-left-radius: 40px; border-bottom-right-radius: 40px;")
+      .d-flex.justify-content-between.align-items-center.mt-2
+        .d-flex.align-items-center
+          .bg-white.rounded-circle.me-3.d-flex.justify-content-center.align-items-center(style="width: 55px; height: 55px;")
+            i.bi.bi-person-fill(style="font-size: 2rem; color: #FF8C00;")
+          div
+            h2.h4.fw-bold.m-0= title
+            p.small.m-0= subtitle
+        .bg-white.rounded-pill.px-3.py-1.shadow-sm
+          i.bi.bi-trophy-fill.me-1(style="color: #FF8C00;")
+          span.fw-bold.text-dark= progeso
+
+    .cuerpo-app.px-3.mt-4
+      
+      //- 1. BUSCADOR (Visual)
+      .search-container.mb-4
+        .input-group.shadow-sm(style="border-radius: 15px; overflow: hidden; border: 2px solid #FF8C00;")
+          span.input-group-text.bg-white.border-0
+            i.bi.bi-search(style="color: #FF8C00;")
+          input.form-control.border-0.py-2(type="text", placeholder="¿Qué quieres aprender hoy?", style="box-shadow: none;")
+
+      //- Tarjeta informativa
+      .card.border-0.shadow-sm.p-3.mb-4(style="border-radius: 20px; border-left: 8px solid #D35400 !important;")
+        h3.h6.fw-bold.mb-1(style="color: #D35400;")= seccionTitulo
+        p.text-muted.small.m-0= seccionDesc
+
+      //- Lista de módulos (Visual)
+      .row.g-3.m-0
+        each modulo in modulos
+          .col-12.p-0.mb-3
+            - const href = (modulo.nombre === 'WhatsApp') ? '/whatsapp' : '#'
+            a.text-decoration-none(href=href)
+              .card.border-0.shadow-sm(style="border-radius: 20px;")
+                .p-2.d-flex.align-items-center
+                  .rounded-4.d-flex.justify-content-center.align-items-center.me-3(style=`width: 70px; height: 70px; background-color: ${modulo.color}; min-width: 70px;`)
+                    i.bi(class=modulo.icono, style="font-size: 2rem; color: white;")
+                  .text-start
+                    h4.h6.fw-bold.mb-1.text-dark= modulo.nombre
+                    p.text-muted.extra-small.m-0(style="font-size: 0.75rem;")= modulo.desc
+
+      //- 2. BOTÓN CREAR CURSO (Visual)
+      .mt-5.pb-5
+        h3.h6.fw-bold.mb-3(style="color: #2C3E50;") ¿Falta algo?
+        //- Por ahora el href es # para que sea solo visual
+        a.text-decoration-none(href="#")
+          .card.border-0.shadow-sm(style="border-radius: 20px; border: 2px dashed #FF8C00; background-color: #FFF5E6;")
+            .p-4.text-center
+              i.bi.bi-plus-circle-fill(style="font-size: 2.5rem; color: #FF8C00;")
+              h4.h6.fw-bold.text-dark.mt-2 Crear curso personalizado
+              p.extra-small.text-muted Diseña tu propio módulo de práctica
