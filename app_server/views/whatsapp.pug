@@ -2,7 +2,6 @@ extends layout
 
 block content
   .container-fluid.p-0
-    // Header WhatsApp
     .p-4.text-white(style="background:#25D366; border-bottom-left-radius:40px; border-bottom-right-radius:40px;")
       .d-flex.align-items-center.justify-content-between
         a.text-white.text-decoration-none(href="/principal", data-nav="tap")
@@ -19,7 +18,6 @@ block content
             - const pct = Math.round((completedCount / totalCount) * 100)
             .progress-bar(role="progressbar", style=`width:${pct}%`)
 
-    // Body
     .px-3.mt-4.pb-5
       .card.border-0.shadow-sm.p-3.mb-3(style="border-radius:20px; border-left:8px solid #1f9f4d !important;")
         h3.h6.fw-bold.mb-1(style="color:#1f9f4d;") Ejercicios prácticos

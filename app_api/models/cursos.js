@@ -1,12 +1,18 @@
 const mongoose = require('mongoose');
 
-// Definición del esquema según lo que vimos en tu app
+const reseñaSchema = new mongoose.Schema({
+    autor: { type: String, required: true },
+    puntuacion: { type: Number, required: true, min: 0, max: 5 },
+    comentario: { type: String, required: true },
+    fecha: { type: Date, default: Date.now }
+});
+
 const cursoSchema = new mongoose.Schema({
     nombre: { type: String, required: true },
     descripcion: String,
     icono: String,
     color_hex: String,
-    progreso: { type: Number, default: 0 }
+    reseñas: [reseñaSchema] 
 });
 
 mongoose.model('Curso', cursoSchema);

@@ -8,7 +8,6 @@ router.get('/', ctrlAuth.login);
 router.get('/registro', ctrlAuth.registro);
 router.get('/principal', ctrlContenidos.principal);
 
-// Comentamos estas para ver si el servidor arranca:
 router.get('/whatsapp', ctrlContenidos.whatsapp);
 router.get('/whatsapp/agregar-contacto', ctrlContenidos.whatsappAgregarContacto);
 router.get('/whatsapp/agregar-contacto/paso/:n', ctrlContenidos.whatsappAgregarContactoPaso);

@@ -41,7 +41,6 @@ function findExistingIndex(arr, payload) {
 
   return arr.findIndex((r) => {
     if (userId && r.userId) return String(r.userId) === userId;
-    // fallback por nombre (si no hay userId)
     return normalizeName(r.userName) === userNameNorm;
   });
 }
@@ -55,7 +54,6 @@ function addReview(courseId, payload) {
     return { error: "La calificación (rating) debe ser un número entre 1 y 5.", status: 400 };
   }
 
-  // ✅ Solo una reseña por curso (por usuario)
   const idx = findExistingIndex(db.reviews[courseId], payload);
   if (idx !== -1) {
     return {

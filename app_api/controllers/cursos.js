@@ -1,4 +1,3 @@
-// GET: Listar todos los cursos (INCLUYE EL BUSCADOR)
 const cursosListar = (req, res) => {
     const textoBuscado = req.query.q; // Captura lo que pones en ?q=...
 
@@ -17,7 +16,6 @@ const cursosListar = (req, res) => {
     }
 };
 
-// POST: Crear un nuevo curso (PERSONALIZADO)
 const cursosCrear = (req, res) => {
     res.status(201).json({ 
         "mensaje": "Curso personalizado creado con éxito",
@@ -25,12 +23,10 @@ const cursosCrear = (req, res) => {
     });
 };
 
-// GET: Leer un curso específico
 const cursosLeerUno = (req, res) => {
     res.status(200).json({ "mensaje": "Detalles del curso ID: " + req.params.cursoid });
 };
 
-// PUT: Actualizar un curso (EDITAR PERSONALIZACIÓN)
 const cursosActualizar = (req, res) => {
     res.status(200).json({
         "mensaje": "Curso ID: " + req.params.cursoid + " actualizado",
@@ -38,7 +34,6 @@ const cursosActualizar = (req, res) => {
     });
 };
 
-// DELETE: Borrar un curso (ELIMINAR PERSONALIZADO)
 const cursosBorrar = (req, res) => {
     res.status(204).json(null); // 204 significa "Todo OK, elemento borrado"
 };

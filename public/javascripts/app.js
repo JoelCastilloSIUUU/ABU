@@ -1,5 +1,3 @@
-// Tap feedback + simple page transition
-// Add data-nav="tap" to <a> links.
 
 (function () {
   const page = document.getElementById('page');
@@ -25,7 +23,6 @@
 
     e.preventDefault();
 
-    // Tap animation
     link.classList.add('tap-active');
     window.setTimeout(function () {
       link.classList.remove('tap-active');

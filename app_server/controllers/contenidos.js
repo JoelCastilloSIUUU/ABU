@@ -1,4 +1,3 @@
-/*Main Page*/
 const principal = (req, res) => {
     res.render('principal', {
         title: '¡Hola, !',
@@ -25,7 +24,6 @@ module.exports = {
     whatsappAgregarContactoCompletado
 };
 
-/* WhatsApp module (prototype screens based on Figma) */
 
 function whatsapp(req, res) {
     const done = req.query.done === 'agregar-contacto';
@@ -95,7 +93,6 @@ function whatsappAgregarContactoPaso(req, res) {
         }
     };
 
-    // fallback safe
     const data = steps[paso] || steps[1];
 
     const nextHref = paso < totalPasos

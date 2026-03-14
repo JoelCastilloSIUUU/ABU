@@ -1,4 +1,3 @@
-/*Login*/
 const login = (req, res) => {
     res.render('login', { 
         title: 'Tu Guía Digital',
@@ -9,7 +8,6 @@ const login = (req, res) => {
 };
 
 
-/*Registro*/
 const registro = (req, res) => {
   res.render('registro', { 
     title: 'Tu Guía Digital',
@@ -17,6 +15,23 @@ const registro = (req, res) => {
     botonPrincipal: 'Crear cuenta',
     loginTexto: '¿Ya tienes cuenta? Inicia sesión'
   });
+};
+
+const usuarioInscribirCurso = (req, res) => {
+    if (!req.body.moduloNombre) {
+        return res.status(400).json({ "mensaje": "Debes seleccionar un módulo" });
+    }
+    res.status(201).json({
+        "mensaje": "Módulo añadido a tu pantalla principal",
+        "modulo": req.body.moduloNombre
+    });
+};
+
+const usuarioBorrar = (req, res) => {
+    res.status(200).json({
+        "mensaje": "Módulo quitado de la vista principal",
+        "moduloId": req.params.mid
+    });
 };
 
 module.exports = {
